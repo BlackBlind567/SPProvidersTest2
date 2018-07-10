@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item android:title="@string/services">
+        <menu>
+            <item
+                android:id="@+id/nav_metal_spot_rate"
+                android:title="@string/metal_spot_rate" />
+            <item
+                android:id="@+id/nav_ms_ingot_scrap_spot_rate"
+
+                android:title="@string/ms_ingot_scrap_spot_rate" />
+
+            <item
+                android:id="@+id/nav_pulses_spot_rate"
+                android:title="@string/pulses_spot_rate" />
+
+            <item
+                android:id="@+id/nav_edible_oil_spot_rate"
+                android:title="@string/edible_oil_spot_rate" />
+        </menu>
+    </item>
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="@string/share" />
+            <item
+                android:id="@+id/nav_send"
+                android:title="@string/send" />
+        </menu>
+    </item>
+
+</menu>
