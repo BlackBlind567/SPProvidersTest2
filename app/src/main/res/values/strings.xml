@@ -16,4 +16,17 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="home">Home</string>
+    <string name="name">Name</string>
+    <string name="your_name">Your Name</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="submit">Submit</string>
+
+    <string-array name="Services_array">
+        <item>METAL SPOT RATE</item>
+        <item>MS INGOT/SCRAP SPOT RATE</item>
+        <item>PULSES SPOT RATE</item>
+        <item>EDIBLE OIL SPOT RATE</item>
+    </string-array>
+
 </resources>
