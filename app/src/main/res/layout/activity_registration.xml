@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RegistrationActivity"
     android:background="@color/colorBackground">
 
@@ -17,9 +18,10 @@
             android:id="@+id/nameWrapper"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorTextHint"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
-            <!--app:errorTextAppearance="@style/WelcomeErrorAppearance"-->
+
             <EditText
                 android:id="@+id/reg_name"
                 android:layout_width="match_parent"
@@ -31,7 +33,7 @@
                 android:paddingStart="10dp"
                 android:paddingRight="10dp"
                 android:layout_marginBottom="15dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorTextInput"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -41,7 +43,8 @@
             android:id="@+id/EmailWrapper"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorTextHint"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_email"
@@ -54,7 +57,7 @@
                 android:paddingStart="10dp"
                 android:paddingRight="10dp"
                 android:layout_marginBottom="15dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorTextInput"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -63,7 +66,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/mobileWrapper"
             android:layout_marginTop="6dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorTextHint"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_mobile"
@@ -78,7 +82,7 @@
                 android:paddingStart="10dp"
                 android:paddingRight="10dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorTextInput"/>
 
         </android.support.design.widget.TextInputLayout>
 
