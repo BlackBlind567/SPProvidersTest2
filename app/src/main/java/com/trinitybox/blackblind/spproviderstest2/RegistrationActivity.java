@@ -38,7 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // TODO same here
+                //TODO i dont know what to do
                 Spinner spinner = (Spinner) findViewById(R.id.spinner);
                 spinner.setOnItemSelectedListener(this);
             }

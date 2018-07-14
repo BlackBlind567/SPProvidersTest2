@@ -86,30 +86,37 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_home:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "HOME", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_reload:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "Reload", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_filter:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "Filter", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_news:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "News", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_settings:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_contact_us:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "Contact Us", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_about_us:
+                //TODO Set action
                 Toast.makeText(MainActivity.this, "About Us", Toast.LENGTH_SHORT).show();
                 break;
         }

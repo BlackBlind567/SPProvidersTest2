@@ -21,6 +21,9 @@
     <string name="email">Email</string>
     <string name="mobile">Mobile</string>
     <string name="submit">Submit</string>
+    <string name="share_market_msg">Share Market Msg</string>
+    <string name="contact">Contact</string>
+    <string name="link">Link</string>
 
     <string-array name="Services_array">
         <item>METAL SPOT RATE</item>

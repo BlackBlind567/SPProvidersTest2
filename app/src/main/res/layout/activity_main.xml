@@ -9,7 +9,7 @@
     android:id="@+id/drawer_layout"
     tools:openDrawer="start">
 
-    <include layout="@layout/content_main"/>
+    <!--<include layout="@layout/content_main"/>-->
 
 
     <android.support.design.widget.NavigationView
