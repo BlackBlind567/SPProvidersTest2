@@ -9,7 +9,7 @@
     android:id="@+id/drawer_layout"
     tools:openDrawer="start">
 
-    <!--<include layout="@layout/content_main"/>-->
+
 
 
     <android.support.design.widget.NavigationView
@@ -20,5 +20,6 @@
         android:background="@color/colorAccent"
         app:menu="@menu/navigation_drawer" />
     <!--app:headerLayout="@layout/nav_header_main"-->
+
 
 </android.support.v4.widget.DrawerLayout>

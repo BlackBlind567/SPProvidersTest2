@@ -1,5 +1,6 @@
 package com.trinitybox.blackblind.spproviderstest2;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 if (id == R.id.nav_metal_spot_rate){
                     //TODO change it according feature
                     Toast.makeText(MainActivity.this, "item clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, ShareMarketActivity.class));
                 }
 
                 else if (id == R.id.nav_ms_ingot_scrap_spot_rate){
