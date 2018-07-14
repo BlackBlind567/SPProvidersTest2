@@ -9,9 +9,6 @@
     android:id="@+id/drawer_layout"
     tools:openDrawer="start">
 
-
-
-
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_menu"
         android:layout_width="wrap_content"
