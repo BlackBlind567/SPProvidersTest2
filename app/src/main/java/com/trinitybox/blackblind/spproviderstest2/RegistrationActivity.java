@@ -35,9 +35,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
 //        String[] items = new String[]{"1", "2", "three"};
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Services_array, android.R.layout.simple_spinner_item);
+                R.array.Services_array, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
