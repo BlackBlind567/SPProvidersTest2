@@ -41,7 +41,7 @@ public class ShareMarketActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.rw_list);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(quoteListAdapter);
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
