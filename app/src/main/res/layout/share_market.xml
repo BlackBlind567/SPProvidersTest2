@@ -1,78 +1,101 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/share_market"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/share_market"
-    tools:context=".MainActivity"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    android:paddingBottom="10dp">
+    android:paddingBottom="10dp"
+    tools:context=".MainActivity">
 
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
         app:cardBackgroundColor="@color/colorBackgroundCard"
         app:cardCornerRadius="10dp">
 
-
         <TextView
-            android:id="@+id/tv_date_time"
+            android:id="@+id/tv_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="@string/date_and_time"/>
+            android:gravity="start"
+            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/date_and_time"
+            android:textColor="@color/colorTextInput"
+            android:textSize="20sp" />
 
 
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/date_and_time"
+            android:textColor="@color/colorTextInput"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_quote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="16dp"
+                android:gravity="start"
+                android:padding="10dp"
                 android:text="Quote"
-                android:textSize="25sp"
-                android:maxLines="4"
                 android:textAlignment="textStart"
                 android:textColor="@color/colorAccent"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:gravity="start"
-                android:layout_gravity="start"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/for_any_query_please_contact_us"
-                android:textColor="@color/colorTextInput"
-                android:textSize="18sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Number"
-                android:textColor="@color/colorTextInput"
-                android:textSize="18sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="10dp"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#595765"
+                    android:padding="0dp"
+                    android:text="Call"
+                    android:textColor="@color/colorTextInput" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="For Queries"
+                    android:textColor="@color/colorTextInput" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="#595765"
+                    android:padding="0dp"
+                    android:text="Call"
+                    android:textColor="@color/colorTextInput" />
+            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
-
 </LinearLayout>

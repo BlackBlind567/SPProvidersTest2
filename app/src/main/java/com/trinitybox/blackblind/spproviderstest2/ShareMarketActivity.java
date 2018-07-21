@@ -24,7 +24,7 @@ import java.util.List;
 public class ShareMarketActivity extends AppCompatActivity {
 
 
-    int dd, mm, yy;
+    String dd, mm, yy;
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "FireLog";
     private List<ShareMarket> shareMarketList;
@@ -36,18 +36,6 @@ public class ShareMarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_market);
 
-//        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-        TextView textView = findViewById(R.id.tv_date_time);
-
-        //Todo this is for date
-        Calendar c = Calendar.getInstance();
-        dd = c.get(Calendar.DATE);
-        mm = c.get(Calendar.MONTH);
-        yy = c.get(Calendar.YEAR);
-        textView.setText(dd + "/" + (mm+1) + "/"+yy);
-
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         shareMarketList = new ArrayList<>();
@@ -55,7 +43,7 @@ public class ShareMarketActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.rw_list);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(shareMarketListAdapter);
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -64,13 +52,11 @@ public class ShareMarketActivity extends AppCompatActivity {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 
-                if (e != null){
-
-                    Log.d(TAG , "Error : " + e.getMessage());
+                if (e != null) {
+                    Log.d(TAG, "Error : " + e.getMessage());
                 }
 
-                for (DocumentChange documentChange: documentSnapshots.getDocumentChanges()){
-
+                for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
                     switch (documentChange.getType()) {
                         case ADDED:
                             ShareMarket quotes = documentChange.getDocument().toObject(ShareMarket.class);
@@ -85,10 +71,9 @@ public class ShareMarketActivity extends AppCompatActivity {
                         case MODIFIED:
                             ShareMarket quotes2 = documentChange.getDocument().toObject(ShareMarket.class);
                             shareMarketList.getClass();
-                           shareMarketListAdapter.notifyDataSetChanged();
+                            shareMarketListAdapter.notifyDataSetChanged();
                             break;
                     }
-
                 }
 
             }
