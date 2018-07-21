@@ -17,14 +17,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ShareMarketActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "FireLog";
-    private List<quote> quoteList;
-    private quoteListAdapter quoteListAdapter;
+    private List<ShareMarket> shareMarketList;
+    private ShareMarketListAdapter shareMarketListAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -36,13 +35,13 @@ public class ShareMarketActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        quoteList = new ArrayList<>();
-        quoteListAdapter = new quoteListAdapter(quoteList);
+        shareMarketList = new ArrayList<>();
+        shareMarketListAdapter = new ShareMarketListAdapter(shareMarketList);
 
         RecyclerView recyclerView = findViewById(R.id.rw_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        recyclerView.setAdapter(quoteListAdapter);
+        recyclerView.setAdapter(shareMarketListAdapter);
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -59,19 +58,19 @@ public class ShareMarketActivity extends AppCompatActivity {
 
                     switch (documentChange.getType()) {
                         case ADDED:
-                            quote quotes = documentChange.getDocument().toObject(quote.class);
-                            quoteList.add(quotes);
-                            quoteListAdapter.notifyDataSetChanged();
+                            ShareMarket quotes = documentChange.getDocument().toObject(ShareMarket.class);
+                            shareMarketList.add(quotes);
+                            shareMarketListAdapter.notifyDataSetChanged();
                             break;
                         case REMOVED:
-                            quote quotes1 = documentChange.getDocument().toObject(quote.class);
-                            quoteList.remove(quotes1);
-                            quoteListAdapter.notifyDataSetChanged();
+                            ShareMarket quotes1 = documentChange.getDocument().toObject(ShareMarket.class);
+                            shareMarketList.remove(quotes1);
+                            shareMarketListAdapter.notifyDataSetChanged();
                             break;
                         case MODIFIED:
-                            quote quotes2 = documentChange.getDocument().toObject(quote.class);
-                            quoteList.getClass();
-                            quoteListAdapter.notifyDataSetChanged();
+                            ShareMarket quotes2 = documentChange.getDocument().toObject(ShareMarket.class);
+                            shareMarketList.getClass();
+                           shareMarketListAdapter.notifyDataSetChanged();
                             break;
                     }
 

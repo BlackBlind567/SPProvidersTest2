@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/quote_list"
+    android:id="@+id/share_market"
     tools:context=".MainActivity"
     android:background="@color/colorBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
 
 
     <android.support.v7.widget.CardView
@@ -19,33 +20,7 @@
         app:cardBackgroundColor="@color/colorBackgroundCard"
         app:cardCornerRadius="10dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/tv_app_title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:text="Be"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/tv_app_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:text="First"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,18 +41,27 @@
                 android:gravity="start"
                 android:layout_gravity="start"
                 android:textStyle="bold"/>
+
+
+
             <TextView
-                android:id="@+id/tv_author"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Author"
+                android:text="@string/for_any_query_please_contact_us"
+                android:textColor="@color/colorTextInput"
                 android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:textAlignment="textEnd"
-                android:gravity="end"
-                android:layout_gravity="end" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number"
+                android:textColor="@color/colorTextInput"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

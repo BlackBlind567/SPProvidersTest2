@@ -10,34 +10,34 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class quoteListAdapter extends RecyclerView.Adapter<quoteListAdapter.ViewHolder> {
+public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketListAdapter.ViewHolder> {
 
 
-    private List<quote> quoteList;
-    quoteListAdapter(List<quote> quoteList){
+    private List<ShareMarket> shareMarketList;
+    ShareMarketListAdapter(List<ShareMarket> shareMarketList){
 
-        this.quoteList = quoteList;
+        this.shareMarketList = shareMarketList;
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.quote_list,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.share_market,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.quoteText.setText(quoteList.get(position).getQuote());
-        holder.authorText.setText(quoteList.get(position).getAuthor());
+        holder.quoteText.setText(shareMarketList.get(position).getQuote());
+//        holder.authorText.setText(shareMarketList.get(position).getAuthor());
 
     }
 
     @Override
     public int getItemCount() {
-        return quoteList.size();
+        return shareMarketList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -45,7 +45,7 @@ public class quoteListAdapter extends RecyclerView.Adapter<quoteListAdapter.View
         View mView;
 
         TextView quoteText;
-        TextView authorText;
+//        TextView authorText;
 
 
 
@@ -55,7 +55,7 @@ public class quoteListAdapter extends RecyclerView.Adapter<quoteListAdapter.View
 
 
             quoteText = mView.findViewById(R.id.tv_quote);
-            authorText = mView.findViewById(R.id.tv_author);
+//            authorText = mView.findViewById(R.id.tv_author);
 
 
 
