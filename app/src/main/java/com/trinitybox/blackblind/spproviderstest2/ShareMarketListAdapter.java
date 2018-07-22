@@ -44,8 +44,10 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
 
         View mView;
 
+        //Todo I am working here
         TextView quoteText;
 //        TextView authorText;
+        TextView DateText;
 
 
 
@@ -56,7 +58,7 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
 
             quoteText = mView.findViewById(R.id.tv_quote);
 //            authorText = mView.findViewById(R.id.tv_author);
-
+            DateText =
 
 
         }

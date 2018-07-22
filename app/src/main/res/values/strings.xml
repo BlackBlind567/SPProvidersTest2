@@ -26,6 +26,7 @@
     <string name="link">Link</string>
     <string name="app_logo">App Logo</string>
     <string name="for_any_query_please_contact_us">For any query please contact us</string>
+    <string name="date_and_time">Date and Time</string>
 
     <string-array name="Services_array">
         <item>METAL SPOT RATE</item>
