@@ -1,4 +1,4 @@
-package com.trinitybox.blackblind.spproviderstest2;
+package com.trinitybox.blackblind.spproviderstest2.Activities;
 
 
 import android.os.Build;
@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
@@ -16,9 +15,11 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.trinitybox.blackblind.spproviderstest2.Objects.ShareMarket;
+import com.trinitybox.blackblind.spproviderstest2.R;
+import com.trinitybox.blackblind.spproviderstest2.Adapters.ShareMarketListAdapter;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class ShareMarketActivity extends AppCompatActivity {

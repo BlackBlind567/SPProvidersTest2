@@ -1,4 +1,4 @@
-package com.trinitybox.blackblind.spproviderstest2;
+package com.trinitybox.blackblind.spproviderstest2.Activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -23,7 +23,11 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.trinitybox.blackblind.spproviderstest2.R;
+import com.trinitybox.blackblind.spproviderstest2.Objects.ShareMarket;
+import com.trinitybox.blackblind.spproviderstest2.Adapters.ShareMarketListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         shareMarketListAdapter = new ShareMarketListAdapter(shareMarketList);
         //Navigation drawer
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -62,31 +66,23 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                if (id == R.id.nav_metal_spot_rate){
+                if (id == R.id.nav_metal_spot_rate) {
                     //TODO change it according feature
                     Toast.makeText(MainActivity.this, "item clicked", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, ShareMarketActivity.class));
-                }
-
-                else if (id == R.id.nav_ms_ingot_scrap_spot_rate){
+                } else if (id == R.id.nav_ms_ingot_scrap_spot_rate) {
                     //TODO change it according feature
                     Toast.makeText(MainActivity.this, "second item clicked", Toast.LENGTH_SHORT).show();
-                }
-
-                else if (id == R.id.nav_pulses_spot_rate){
+                } else if (id == R.id.nav_pulses_spot_rate) {
                     //TODO change it according feature
                     Toast.makeText(MainActivity.this, "third item clicked", Toast.LENGTH_SHORT).show();
-                }
-
-                else if (id == R.id.nav_edible_oil_spot_rate){
+                } else if (id == R.id.nav_edible_oil_spot_rate) {
                     //TODO change it according to feature
                     Toast.makeText(MainActivity.this, "fourth item clicked", Toast.LENGTH_SHORT).show();
-                }
-                else if (id == R.id.nav_share){
+                } else if (id == R.id.nav_share) {
                     //TODO i will change
                     Toast.makeText(MainActivity.this, "share clicked", Toast.LENGTH_SHORT).show();
-                }
-                else if (id == R.id.nav_send){
+                } else if (id == R.id.nav_send) {
                     //TODO i will change
                     Toast.makeText(MainActivity.this, "send clicked", Toast.LENGTH_SHORT).show();
                 }
@@ -97,22 +93,28 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.rw_list);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(shareMarketListAdapter);
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        firebaseFirestore.setFirestoreSettings(settings);
+
 
         //TODO Database name has to be changed
         firebaseFirestore.collection("UserThoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 
-                if (e != null){
+                if (e != null) {
 
-                    Log.d(TAG , "Error : " + e.getMessage());
+                    Log.d(TAG, "Error : " + e.getMessage());
                 }
 
-                for (DocumentChange documentChange: documentSnapshots.getDocumentChanges()){
+                for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
 
                     switch (documentChange.getType()) {
                         case ADDED:
@@ -139,12 +141,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_home:
                 //TODO Set action
                 Toast.makeText(MainActivity.this, "HOME", Toast.LENGTH_SHORT).show();

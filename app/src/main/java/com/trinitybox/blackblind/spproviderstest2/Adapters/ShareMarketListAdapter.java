@@ -1,4 +1,4 @@
-package com.trinitybox.blackblind.spproviderstest2;
+package com.trinitybox.blackblind.spproviderstest2.Adapters;
 
 
 import android.support.annotation.NonNull;
@@ -8,19 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.trinitybox.blackblind.spproviderstest2.Objects.ShareMarket;
+import com.trinitybox.blackblind.spproviderstest2.R;
+
 import java.util.Calendar;
 import java.util.List;
 
 public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketListAdapter.ViewHolder> {
 
-
     private List<ShareMarket> shareMarketList;
 
-    ShareMarketListAdapter(List<ShareMarket> shareMarketList) {
-
+    public ShareMarketListAdapter(List<ShareMarket> shareMarketList) {
         this.shareMarketList = shareMarketList;
     }
-
 
     @NonNull
     @Override
@@ -32,7 +32,7 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.quoteText.setText(shareMarketList.get(position).getQuote());
+        //Generate Current Date & Time
         Calendar calendar = Calendar.getInstance();
         String date = String.valueOf(calendar.get(Calendar.DATE));
         String month = String.valueOf(calendar.get(Calendar.MONTH));
@@ -41,10 +41,19 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
         String timeString = String.valueOf(calendar.get(Calendar.HOUR) + ":" +
                 String.valueOf(calendar.get(Calendar.MINUTE)));
 
-        holder.dateText.setText(dateString);
-        holder.timeText.setText(timeString);
+        holder.quoteText.setText(shareMarketList.get(position).getQuote());
 
-//        holder.authorText.setText(shareMarketList.get(position).getAuthor());
+        if (shareMarketList.get(position).getDateValue() != null || !shareMarketList.get(position).getDateValue().equals("")) {
+            holder.dateText.setText(shareMarketList.get(position).getDateValue());
+        } else {
+            holder.dateText.setText(dateString);
+        }
+
+        if (shareMarketList.get(position).getTimeValue() != null || !shareMarketList.get(position).getTimeValue().equals("")) {
+            holder.timeText.setText(shareMarketList.get(position).getTimeValue());
+        } else {
+            holder.timeText.setText(timeString);
+        }
     }
 
     @Override
@@ -55,10 +64,7 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
     class ViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
-        //Todo I am working here
         TextView quoteText, dateText, timeText;
-        //        TextView authorText;
-
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,8 +73,6 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
             quoteText = mView.findViewById(R.id.tv_quote);
             dateText = mView.findViewById(R.id.tv_date);
             timeText = mView.findViewById(R.id.tv_time);
-//            authorText = mView.findViewById(R.id.tv_author);
-
         }
     }
 }
