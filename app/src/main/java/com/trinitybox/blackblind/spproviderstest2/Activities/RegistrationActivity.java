@@ -1,8 +1,14 @@
 package com.trinitybox.blackblind.spproviderstest2.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,53 +16,111 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.trinitybox.blackblind.spproviderstest2.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private Spinner spinner;
+    private static final String TAG = "RegisterActivity";
+    FirebaseFirestore firebaseFirestore;
+    Button submitButton;
+    TextInputEditText emailEditText, fullNameEditText, mobileEditText;
+    TextInputLayout emailLayout, fullNameLayout, mobileLayout;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        //TODO Data is not stored anywhere
-
-
-        Button button = findViewById(R.id.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-            }
-        });
-
-        // Spinner
+        //UI References
+        submitButton = findViewById(R.id.submitButton);
         spinner = findViewById(R.id.spinner);
 
-//        String[] items = new String[]{"1", "2", "three"};
+        emailLayout = findViewById(R.id.emailWrapper);
+        fullNameLayout = findViewById(R.id.nameWrapper);
+        mobileLayout = findViewById(R.id.mobileWrapper);
+
+        emailEditText = findViewById(R.id.emailET);
+        fullNameEditText = findViewById(R.id.nameET);
+        mobileEditText = findViewById(R.id.mobieET);
+
+        //Setting Spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.Services_array, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        //Initialize Firestore
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        firebaseFirestore.setFirestoreSettings(settings);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //On Submitting Form
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //TODO i dont know what to do
+            public void onClick(View v) {
+                // Create a new user with a first and last name
+                Map<String, Object> user = new HashMap<>();
+                if (!fullNameEditText.getText().toString().equals("")) {
+                    user.put("name", fullNameEditText.getText().toString());
+                } else {
+                    fullNameEditText.requestFocus();
+                    Log.d(TAG, "If you can see this message, return worked");
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
+                    builder.setMessage("Input required")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Insufficient Input")
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    return;
+                }
 
-                Toast.makeText(parent.getContext(),
-                        "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(),
-                        Toast.LENGTH_SHORT).show();
-            }
+                Log.d(TAG, "If you can see this message, return didn't work");
+                user.put("email", emailEditText.getText().toString());
+                user.put("mobile", mobileEditText.getText().toString());
+                user.put("category", spinner.getSelectedItem().toString());
+                user.put("approved", false);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //TODO i dont know what to do
-                Spinner spinner = (Spinner) findViewById(R.id.spinner);
-                spinner.setOnItemSelectedListener(this);
+                //Remove OnClickListner
+                submitButton.setOnClickListener(null);
+                submitButton.setText("Please Wait...");
+
+                firebaseFirestore.collection("users")
+                        .add(user)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
+                                builder.setMessage("Registration Failed")
+                                        .setTitle("Failed");
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
+                            }
+                        });
             }
         });
     }

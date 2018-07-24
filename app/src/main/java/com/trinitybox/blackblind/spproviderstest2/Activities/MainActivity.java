@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
-    private static final String TAG = "FireLog";
+    private static final String TAG = "MainActivity";
     private List<ShareMarket> shareMarketList;
     private ShareMarketListAdapter shareMarketListAdapter;
 
@@ -96,21 +96,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(shareMarketListAdapter);
 
+        //Firebase
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setTimestampsInSnapshotsEnabled(true)
                 .build();
         firebaseFirestore.setFirestoreSettings(settings);
 
 
-        //TODO Database name has to be changed
+        //TODO: Database name will be changed
         firebaseFirestore.collection("UserThoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 
                 if (e != null) {
-
                     Log.d(TAG, "Error : " + e.getMessage());
                 }
 
@@ -183,9 +182,8 @@ public class MainActivity extends AppCompatActivity {
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
+
     //Option menu
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

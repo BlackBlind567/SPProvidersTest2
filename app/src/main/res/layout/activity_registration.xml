@@ -11,116 +11,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/app_logo"
             android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:contentDescription="@string/app_logo" />
+            android:visibility="gone" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/nameWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="30dp"
             android:textColorHint="@color/colorTextHint"
+            app:counterEnabled="true"
+            app:counterTextAppearance="@style/CounterStyle"
             app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
-
-            <EditText
-                android:id="@+id/reg_name"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/nameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
                 android:hint="@string/your_name"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
                 android:textColor="@color/colorTextInput" />
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/EmailWrapper"
+            android:id="@+id/emailWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="6dp"
             android:textColorHint="@color/colorTextHint"
+            app:counterEnabled="true"
+            app:counterTextAppearance="@style/CounterStyle"
             app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
-            <EditText
-                android:id="@+id/reg_email"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
                 android:textColor="@color/colorTextInput" />
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/mobileWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:textColorHint="@color/colorTextHint"
+            app:counterEnabled="true"
+            app:counterTextAppearance="@style/CounterStyle"
             app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
-            <EditText
-                android:id="@+id/reg_mobile"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/mobieET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:hint="@string/mobile"
                 android:inputType="number"
                 android:maxLength="10"
                 android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
                 android:textColor="@color/colorTextInput" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <Spinner
+        <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/spinner_border">
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_border" />
 
-        </Spinner>
-
-        <Button
-            android:id="@+id/btn"
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/submit" />
+            android:background="@color/colorTextInput"
+            android:text="@string/submit"
+            android:textColor="@color/colorBackground" />
 
     </LinearLayout>
 

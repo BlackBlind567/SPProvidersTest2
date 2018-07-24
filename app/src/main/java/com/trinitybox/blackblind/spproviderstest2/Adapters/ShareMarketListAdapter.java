@@ -33,27 +33,17 @@ public class ShareMarketListAdapter extends RecyclerView.Adapter<ShareMarketList
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         //Generate Current Date & Time
-        Calendar calendar = Calendar.getInstance();
-        String date = String.valueOf(calendar.get(Calendar.DATE));
-        String month = String.valueOf(calendar.get(Calendar.MONTH));
-        String year = String.valueOf(calendar.get(Calendar.YEAR));
-        String dateString = date + "/" + month + "/" + year;
-        String timeString = String.valueOf(calendar.get(Calendar.HOUR) + ":" +
-                String.valueOf(calendar.get(Calendar.MINUTE)));
+//        Calendar calendar = Calendar.getInstance();
+//        String date = String.valueOf(calendar.get(Calendar.DATE));
+//        String month = String.valueOf(calendar.get(Calendar.MONTH));
+//        String year = String.valueOf(calendar.get(Calendar.YEAR));
+//        String dateString = date + "/" + month + "/" + year;
+//        String timeString = String.valueOf(calendar.get(Calendar.HOUR) + ":" +
+//                String.valueOf(calendar.get(Calendar.MINUTE)));
 
         holder.quoteText.setText(shareMarketList.get(position).getQuote());
-
-        if (shareMarketList.get(position).getDateValue() != null || !shareMarketList.get(position).getDateValue().equals("")) {
-            holder.dateText.setText(shareMarketList.get(position).getDateValue());
-        } else {
-            holder.dateText.setText(dateString);
-        }
-
-        if (shareMarketList.get(position).getTimeValue() != null || !shareMarketList.get(position).getTimeValue().equals("")) {
-            holder.timeText.setText(shareMarketList.get(position).getTimeValue());
-        } else {
-            holder.timeText.setText(timeString);
-        }
+        holder.dateText.setText(shareMarketList.get(position).getDateValue());
+        holder.timeText.setText(shareMarketList.get(position).getTimeValue());
     }
 
     @Override
