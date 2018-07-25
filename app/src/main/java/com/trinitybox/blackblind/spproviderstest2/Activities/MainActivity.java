@@ -66,24 +66,19 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
+                //TODO: Set Action
                 if (id == R.id.nav_metal_spot_rate) {
-                    //TODO change it according feature
                     Toast.makeText(MainActivity.this, "item clicked", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, ShareMarketActivity.class));
                 } else if (id == R.id.nav_ms_ingot_scrap_spot_rate) {
-                    //TODO change it according feature
                     Toast.makeText(MainActivity.this, "second item clicked", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_pulses_spot_rate) {
-                    //TODO change it according feature
                     Toast.makeText(MainActivity.this, "third item clicked", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_edible_oil_spot_rate) {
-                    //TODO change it according to feature
                     Toast.makeText(MainActivity.this, "fourth item clicked", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_share) {
-                    //TODO i will change
                     Toast.makeText(MainActivity.this, "share clicked", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_send) {
-                    //TODO i will change
                     Toast.makeText(MainActivity.this, "send clicked", Toast.LENGTH_SHORT).show();
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -103,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         firebaseFirestore.setFirestoreSettings(settings);
 
-
-        //TODO: Database name will be changed
+        //TODO: Database Name
         firebaseFirestore.collection("UserThoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
@@ -132,49 +126,40 @@ public class MainActivity extends AppCompatActivity {
                             shareMarketListAdapter.notifyDataSetChanged();
                             break;
                     }
-
                 }
-
             }
         });
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //TODO: Set Action
         switch (item.getItemId()) {
             case R.id.action_home:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "HOME", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_reload:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "Reload", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_filter:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "Filter", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_news:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "News", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_settings:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_contact_us:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "Contact Us", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_about_us:
-                //TODO Set action
                 Toast.makeText(MainActivity.this, "About Us", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -191,6 +176,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-
 }

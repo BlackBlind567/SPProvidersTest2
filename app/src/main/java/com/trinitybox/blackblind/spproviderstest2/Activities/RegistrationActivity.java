@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -71,11 +72,11 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Create a new user with a first and last name
                 Map<String, Object> user = new HashMap<>();
+
                 if (!fullNameEditText.getText().toString().equals("")) {
                     user.put("name", fullNameEditText.getText().toString());
                 } else {
                     fullNameEditText.requestFocus();
-                    Log.d(TAG, "If you can see this message, return worked");
                     final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
                     builder.setMessage("Input required")
                             .setIcon(android.R.drawable.ic_dialog_alert)
@@ -92,7 +93,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
 
                 Log.d(TAG, "If you can see this message, return didn't work");
+
                 user.put("email", emailEditText.getText().toString());
+
+                //TODO: Email Validation
+//                    if (Patterns.EMAIL_ADDRESS.matcher("ravindra@gmail.com").matches()) {
+//                        Log.d("TAG", "Email Validation Successfull");
+//                    }
                 user.put("mobile", mobileEditText.getText().toString());
                 user.put("category", spinner.getSelectedItem().toString());
                 user.put("approved", false);
