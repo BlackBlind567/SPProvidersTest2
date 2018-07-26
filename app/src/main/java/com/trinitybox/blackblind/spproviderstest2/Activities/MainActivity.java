@@ -24,6 +24,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.trinitybox.blackblind.spproviderstest2.R;
 import com.trinitybox.blackblind.spproviderstest2.Objects.ShareMarket;
@@ -99,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
         firebaseFirestore.setFirestoreSettings(settings);
 
         //TODO: Database Name
-        firebaseFirestore.collection("UserThoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("UserThoughts")
+                .orderBy("dateValue", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 
