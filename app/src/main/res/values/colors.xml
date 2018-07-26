@@ -7,6 +7,7 @@
     <color name="colorBackground">#2e2e3e</color>
     <color name="colorTextInput">#E0E0E0</color>
     <color name="colorTextHint">#98aab8</color>
+    <color name="colorTextDialog">#223a4c</color>
 
 
 </resources>

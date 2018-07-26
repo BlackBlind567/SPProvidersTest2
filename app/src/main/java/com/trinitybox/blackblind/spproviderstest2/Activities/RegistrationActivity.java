@@ -2,7 +2,9 @@ package com.trinitybox.blackblind.spproviderstest2.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
@@ -26,6 +28,7 @@ import com.trinitybox.blackblind.spproviderstest2.R;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -68,6 +71,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         //On Submitting Form
         submitButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 // Create a new user with a first and last name
@@ -77,9 +81,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     user.put("name", fullNameEditText.getText().toString());
                 } else {
                     fullNameEditText.requestFocus();
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
-                    builder.setMessage("Input required")
-                            .setIcon(android.R.drawable.ic_dialog_alert)
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this,R.style.DialogTheme);
+                    builder.setIcon(android.R.drawable.ic_dialog_alert)
                             .setTitle("Insufficient Input")
                             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                 @Override
@@ -89,6 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             });
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
+                    Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawableResource(R.color.colorTextDialog);
                     return;
                 }
 
