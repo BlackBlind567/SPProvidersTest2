@@ -92,6 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             });
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
+                    //alert dialog background
                     Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawableResource(R.color.colorTextDialog);
                     return;
                 }
