@@ -18,6 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -26,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.trinitybox.blackblind.spproviderstest2.R;
 import com.trinitybox.blackblind.spproviderstest2.Objects.ShareMarket;
 import com.trinitybox.blackblind.spproviderstest2.Adapters.ShareMarketListAdapter;
@@ -49,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("default")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Log.d(TAG, "Success");
+                        if (!task.isSuccessful()) {
+                            Log.d(TAG, "Failed");
+                        }
+                    }
+                });
+
         drawerLayout = findViewById(R.id.drawer_layout);
 
         shareMarketList = new ArrayList<>();
