@@ -11,23 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/app_logo"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/logo" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/nameWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:textColorHint="@color/colorTextHint"
+
             app:counterEnabled="true"
             app:counterTextAppearance="@style/CounterStyle"
             app:errorTextAppearance="@style/WelcomeErrorAppearance">
@@ -46,7 +47,6 @@
             android:id="@+id/emailWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:textColorHint="@color/colorTextHint"
             app:counterEnabled="true"
             app:counterTextAppearance="@style/CounterStyle"
@@ -66,7 +66,6 @@
             android:id="@+id/mobileWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:textColorHint="@color/colorTextHint"
             app:counterEnabled="true"
             app:counterTextAppearance="@style/CounterStyle"
@@ -88,16 +87,17 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/spinner_border" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorTextInput"
+            android:layout_marginBottom="56dp"
+            android:background="@color/colorButtonBackground"
             android:text="@string/submit"
-            android:textColor="@color/colorBackground" />
+            android:textColor="@color/colorTextInput" />
 
     </LinearLayout>
 
