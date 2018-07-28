@@ -116,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: Database Name
         firebaseFirestore.collection("UserThoughts")
-                .orderBy("dateValue", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+                .orderBy("dateValue" , Query.Direction.DESCENDING)
+                //TODO: this line shorting with time but generate null pointer exception i dont know
+//                .orderBy("timeValue" , Query.Direction.DESCENDING)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 

@@ -29,6 +29,7 @@
     <string name="date_and_time">Date and Time</string>
 
     <string-array name="Services_array">
+        <item>Services</item>
         <item>METAL SPOT RATE</item>
         <item>MS INGOT/SCRAP SPOT RATE</item>
         <item>PULSES SPOT RATE</item>
