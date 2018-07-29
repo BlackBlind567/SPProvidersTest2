@@ -159,9 +159,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "HOME", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.action_reload:
-                Toast.makeText(MainActivity.this, "Reload", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.action_reload:
+//                Toast.makeText(MainActivity.this, "Reload", Toast.LENGTH_SHORT).show();
+//                break;
 
             case R.id.action_filter:
                 Toast.makeText(MainActivity.this, "Filter", Toast.LENGTH_SHORT).show();

@@ -6,7 +6,7 @@
         android:id="@+id/action_home"
         android:orderInCategory="1"
         android:title="@string/home"
-        android:icon="@mipmap/profile"
+        android:icon="@mipmap/user"
         app:showAsAction="ifRoom" />
 
     <!--<item-->
