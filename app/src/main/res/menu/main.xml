@@ -6,15 +6,15 @@
         android:id="@+id/action_home"
         android:orderInCategory="1"
         android:title="@string/home"
-        android:icon="@mipmap/home"
+        android:icon="@mipmap/profile"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_reload"
-        android:orderInCategory="2"
-        android:title="@string/news"
-        android:icon="@mipmap/reload"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_reload"-->
+        <!--android:orderInCategory="2"-->
+        <!--android:title="@string/news"-->
+        <!--android:icon="@mipmap/reload"-->
+        <!--app:showAsAction="ifRoom" />-->
 
     <item
         android:id="@+id/action_filter"
